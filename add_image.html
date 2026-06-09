@@ -357,6 +357,24 @@
             validateButtons();
         }
 
+
+        // Helper khusus untuk menyuntikkan metadata resmi ke dalam PDFDoc (pdf-lib)
+        function applyOfficialMetadata(pdfDoc) {
+            try {
+                pdfDoc.setAuthor('Aldespi Arifin');
+                pdfDoc.setCreator('Kuantan Workspace');
+                pdfDoc.setProducer('ILoveKuantanPDF Engine v1.0');
+                pdfDoc.setTitle('Dokumen Sertifikasi Elektronik');
+                pdfDoc.setSubject('Aplikasi Tata Letak TTE');
+
+                // Atur tanggal pembuatan & modifikasi ke waktu saat ini (2026)
+                const currentTimestamp = new Date();
+                pdfDoc.setCreationDate(currentTimestamp);
+                pdfDoc.setModificationDate(currentTimestamp);
+            } catch (error) {
+                console.error("Gagal menyuntikkan metadata kustom:", error);
+            }
+        }
         // Sinkronisasi Geometri Kotak dari Input / Slider
         function updateOverlayGeometry() {
             if (!currentPdfPage) return;
@@ -557,6 +575,7 @@
                     const file = pdfFiles[i];
                     printLog(`Menyisipkan aset gambar pada file (${i + 1}/${pdfFiles.length}): ${file.name}`, 'info');
                     const modifiedBytes = await injectBothImagesToPdf(file);
+
                     const now = new Date();
                     const timestamp = now.getFullYear() +
                         String(now.getMonth() + 1).padStart(2, '0') +
@@ -604,7 +623,19 @@
                     page.drawImage(embeddedBsreImg, { x: bX, y: bY, width: bW, height: bH });
                 }
             }
-            return await pdfDoc.save();
+            applyOfficialMetadata(pdfDoc);
+            const finalPdfBytes = await pdfDoc.save({
+                useObjectStreams: false, // JANGAN gunakan objek stream modern (sangat krusial untuk server sensitif)
+                addDefaultPage: false,
+                updateFieldAppearances: true
+            });
+
+            // Jalankan trik penurunan versi ke 1.4 yang sebelumnya pada hasil bytes ini
+            if (finalPdfBytes.length > 8) {
+                finalPdfBytes[5] = 0x31; // Angka 1
+                finalPdfBytes[7] = 0x34; // Angka 4
+            }
+            return finalPdfBytes;
         }
 
         function triggerDownload(bytes, filename) {
