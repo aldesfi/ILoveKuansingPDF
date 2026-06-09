@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,21 +11,60 @@
 
     <style>
         /* Mengembalikan Font Sesuai Kode Awal Anda */
-        body, .tte-box, input, textarea, button {
+        body,
+        .tte-box,
+        input,
+        textarea,
+        button {
             font-family: Arial, sans-serif !important;
         }
 
         /* Styling Spesifik Elemen TTE Sesuai Kode Awal */
-        .header-tte { font-size: 16px; margin-bottom: 2px; font-style: normal; }
-        .jabatan { font-size: 16px; font-weight: bold; font-style: italic; text-transform: uppercase; }
-        .instansi { font-size: 16px; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; }
-        .nama-pejabat { font-size: 16px; font-weight: bold; text-decoration: underline; text-transform: uppercase; }
-        .pangkat, .nip { font-size: 15px; margin-top: 2px; }
+        .header-tte {
+            font-size: 16px;
+            margin-bottom: 2px;
+            font-style: normal;
+        }
+
+        .jabatan {
+            font-size: 16px;
+            font-weight: bold;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        .instansi {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .nama-pejabat {
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+
+        .pangkat,
+        .nip {
+            font-size: 15px;
+            margin-top: 2px;
+        }
 
         /* Penyesuaian khusus cetak agar ukuran kotak presisi */
         @media print {
-            .no-print { display: none !important; }
-            body { background: white; padding: 0; margin: 0; }
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
             .print-container {
                 position: absolute;
                 top: 0;
@@ -35,13 +75,29 @@
                 justify-content: center;
                 align-items: center;
             }
+
             .tte-box {
                 border: 3px solid #000000 !important;
                 box-shadow: none !important;
             }
         }
+
+        /* Override warna dasar body agar menggunakan HEX tradisional, menjinakkan html2canvas */
+        html,
+        body {
+            background-color: #f8fafc !important;
+            /* Menggantikan warna oklch bg-slate-50 */
+            color: #1e293b !important;
+            /* Menggantikan warna oklch text-slate-800 */
+        }
+
+        /* Hilangkan box-shadow bawaan Tailwind v4 di sekitar kontainer saat proses capture */
+        #tte-box-capture {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+        }
     </style>
 </head>
+
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
     <header class="no-print bg-white border-b border-slate-200 py-4 px-6 sticky top-0 z-50 shadow-xs">
@@ -55,66 +111,87 @@
                     <p class="text-xs text-slate-500">Dynamic TTE Specimen Generator</p>
                 </div>
             </div>
-            <span class="text-xs font-semibold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-200">
+            <span
+                class="text-xs font-semibold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-200">
                 <i class="fa-solid fa-circle-check mr-1"></i> Ready to Use
             </span>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto p-4 md:p-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
+
         <section class="no-print lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3 flex justify-between items-center">
                 <h2 class="text-base font-bold text-slate-900">Form Data Penandatangan</h2>
-                <button type="button" id="btn-reset" class="text-xs text-rose-600 hover:text-rose-700 font-medium transition flex items-center gap-1">
+                <button type="button" id="btn-reset"
+                    class="text-xs text-rose-600 hover:text-rose-700 font-medium transition flex items-center gap-1">
                     <i class="fa-solid fa-arrow-rotate-left"></i> Reset Form
                 </button>
             </div>
 
             <div class="space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Upload Logo Instansi</label>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Upload Logo
+                        Instansi</label>
                     <div class="flex items-center gap-3">
-                        <label for="in-logo" class="cursor-pointer text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-3 rounded-lg border border-slate-300 transition flex items-center gap-1.5">
+                        <label for="in-logo"
+                            class="cursor-pointer text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-3 rounded-lg border border-slate-300 transition flex items-center gap-1.5">
                             <i class="fa-solid fa-upload"></i> Pilih Gambar
                         </label>
                         <input type="file" id="in-logo" accept="image/*" class="hidden">
-                        <span id="logo-name" class="text-xs text-slate-400 truncate max-w-[180px]">Logo Kuansing (Default)</span>
+                        <span id="logo-name" class="text-xs text-slate-400 truncate max-w-[180px]">Logo Kuansing
+                            (Default)</span>
                     </div>
                 </div>
 
                 <div>
-                    <label for="in-jabatan" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Jabatan (cth: Sandiman Ahli Pertama)</label>
-                    <input type="text" id="in-jabatan" value="SANDIMAN AHLI PERTAMA" class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none">
+                    <label for="in-jabatan"
+                        class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Jabatan (cth:
+                        Sandiman Ahli Pertama)</label>
+                    <input type="text" id="in-jabatan" value="SANDIMAN AHLI PERTAMA"
+                        class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none">
                 </div>
 
                 <div>
-                    <label for="in-instansi" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Dinas / Instansi</label>
-                    <textarea id="in-instansi" rows="2" class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none resize-none">DINAS KOMUNIKASI, INFORMATIKA, STATISTIK DAN PERSANDIAN KABUPATEN KUANTAN SINGINGI,</textarea>
+                    <label for="in-instansi"
+                        class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Dinas /
+                        Instansi</label>
+                    <textarea id="in-instansi" rows="2"
+                        class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none resize-none">DINAS KOMUNIKASI, INFORMATIKA, STATISTIK DAN PERSANDIAN KABUPATEN KUANTAN SINGINGI,</textarea>
                 </div>
 
                 <div>
-                    <label for="in-nama" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nama Lengkap & Gelar</label>
-                    <input type="text" id="in-nama" value="ALDESPI ARIFIN, S.T." class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none">
+                    <label for="in-nama"
+                        class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nama Lengkap &
+                        Gelar</label>
+                    <input type="text" id="in-nama" value="ALDESPI ARIFIN, S.T."
+                        class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none">
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label for="in-pangkat" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Pangkat / Golongan</label>
-                        <input type="text" id="in-pangkat" value="Penata Muda (III/a)" class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none">
+                        <label for="in-pangkat"
+                            class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Pangkat /
+                            Golongan</label>
+                        <input type="text" id="in-pangkat" value="Penata Muda (III/a)"
+                            class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none">
                     </div>
                     <div>
-                        <label for="in-nip" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">NIP</label>
-                        <input type="text" id="in-nip" value="NIP.19941210 202504 1 005" class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none">
+                        <label for="in-nip"
+                            class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">NIP</label>
+                        <input type="text" id="in-nip" value="NIP.19941210 202504 1 005"
+                            class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-2.5 text-sm transition outline-none">
                     </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
-                <button onclick="window.print()" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 cursor-pointer text-sm">
+                <button onclick="window.print()"
+                    class="w-full bg-slate-800 hover:bg-slate-900 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 cursor-pointer text-sm">
                     <i class="fa-solid fa-print"></i> Cetak / PDF
                 </button>
-                <button id="btn-download-img" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md shadow-blue-100 hover:shadow-lg transition flex items-center justify-center gap-2 cursor-pointer text-sm">
+                <button id="btn-download-img"
+                    class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md shadow-blue-100 hover:shadow-lg transition flex items-center justify-center gap-2 cursor-pointer text-sm">
                     <i class="fa-solid fa-image"></i> Download Gambar
                 </button>
             </div>
@@ -124,19 +201,24 @@
             <h3 class="no-print text-sm font-semibold text-slate-500 mb-3 self-start lg:self-center">
                 <i class="fa-regular fa-eye mr-1"></i> Live Preview Specimen
             </h3>
-            
+
             <div class="print-container w-full flex justify-center">
-                <div id="tte-box-capture" class="tte-box w-[550px] h-[220px] border-[3px] border-black bg-white p-[15px_20px] flex items-center gap-[20px] shadow-xl shadow-slate-200/50 box-border select-none overflow-hidden shrink-0">
-                    
+                <div id="tte-box-capture"
+                    class="tte-box w-[550px] h-[220px] border-[3px] border-black bg-white p-[15px_20px] flex items-center gap-[20px] shadow-xl shadow-slate-200/50 box-border select-none overflow-hidden shrink-0"
+                    style="font-family: Arial, sans-serif !important;">
+
                     <div class="w-[110px] flex items-center justify-center shrink-0">
-                        <img id="out-logo" crossorigin="anonymous" src="logo.png" alt="Logo" class="w-full h-auto object-contain">
+                        <img id="out-logo" crossorigin="anonymous" src="logo.png" alt="Logo"
+                            class="w-full h-auto object-contain">
                     </div>
-                    
-                    <div class="flex-1 flex flex-col justify-center text-black leading-[1.3]">
+
+                    <div class="flex-1 flex flex-col justify-center text-black leading-[1.3]"
+                        style="font-family: Arial, sans-serif !important;">
                         <div class="header-tte">Ditandatangani Secara Elektronik oleh :</div>
                         <div id="out-jabatan" class="jabatan">SANDIMAN AHLI PERTAMA</div>
-                        <div id="out-instansi" class="instansi">DINAS KOMUNIKASI, INFORMATIKA, STATISTIK DAN PERSANDIAN KABUPATEN KUANTAN SINGINGI,</div>
-                        
+                        <div id="out-instansi" class="instansi">DINAS KOMUNIKASI, INFORMATIKA, STATISTIK DAN PERSANDIAN
+                            KABUPATEN KUANTAN SINGINGI,</div>
+
                         <div id="out-nama" class="nama-pejabat">ALDESPI ARIFIN, S.T.</div>
                         <div id="out-pangkat" class="pangkat">Penata Muda (III/a)</div>
                         <div id="out-nip" class="nip">NIP.19941210 202504 1 005</div>
@@ -144,15 +226,16 @@
 
                 </div>
             </div>
-            
+
             <p class="no-print text-center text-xs text-slate-400 mt-4 max-w-md">
-                <i class="fa-solid fa-circle-info mr-1"></i> Gunakan tombol <strong>Download Gambar</strong> untuk menyimpan langsung berupa file PNG resolusi tinggi tanpa harus print screen.
+                <i class="fa-solid fa-circle-info mr-1"></i> Gunakan tombol <strong>Download Gambar</strong> untuk
+                menyimpan langsung berupa file PNG resolusi tinggi tanpa harus print screen.
             </p>
         </section>
 
     </main>
 
-     <footer class="bg-gray-800 text-gray-400 text-center py-3 border-t border-gray-700 text-xs font-medium">
+    <footer class="bg-gray-800 text-gray-400 text-center py-3 border-t border-gray-700 text-xs font-medium">
         Aplikasi dibuat oleh <span class="text-white font-semibold">Aldespi Arifin</span> | Sandiman Ahli Pertama
     </footer>
 
@@ -163,19 +246,19 @@
         inputs.forEach(id => {
             const inputEl = document.getElementById(`in-${id}`);
             const outputEl = document.getElementById(`out-${id}`);
-            
-            inputEl.addEventListener('input', function() {
+
+            inputEl.addEventListener('input', function () {
                 outputEl.innerText = this.value;
             });
         });
 
         // Fitur Unggah Gambar/Logo Kustom
-        document.getElementById('in-logo').addEventListener('change', function(e) {
+        document.getElementById('in-logo').addEventListener('change', function (e) {
             const file = e.target.files[0];
             if (file) {
                 document.getElementById('logo-name').innerText = file.name;
                 const reader = new FileReader();
-                reader.onload = function(event) {
+                reader.onload = function (event) {
                     document.getElementById('out-logo').src = event.target.result;
                 };
                 reader.readAsDataURL(file);
@@ -183,8 +266,8 @@
         });
 
         // Fitur Reset Form
-        document.getElementById('btn-reset').addEventListener('click', function() {
-            if(confirm('Apakah Anda yakin ingin mengosongkan form?')) {
+        document.getElementById('btn-reset').addEventListener('click', function () {
+            if (confirm('Apakah Anda yakin ingin mengosongkan form?')) {
                 inputs.forEach(id => {
                     document.getElementById(`in-${id}`).value = '';
                     document.getElementById(`out-${id}`).innerText = '-';
@@ -196,31 +279,36 @@
         });
 
         // ==================== FITUR DOWNLOAD GAMBAR (PNG) ====================
-        document.getElementById('btn-download-img').addEventListener('click', function() {
+        // ==================== FITUR DOWNLOAD GAMBAR (PNG) ====================
+        document.getElementById('btn-download-img').addEventListener('click', function () {
             const captureElement = document.getElementById('tte-box-capture');
             const namaPejabat = document.getElementById('in-nama').value || 'specimen-tte';
-            
-            // Mengubah nama file menjadi format yang bersih (snake-case)
+
             const fileName = `TTE_${namaPejabat.replace(/[^a-z0-9]/gi, '_').toUpperCase()}.png`;
 
-            // Opsi html2canvas untuk memastikan gambar tajam dan menangani CORS logo eksternal
+            // Amankan opsi html2canvas agar hasil render super rapi, tajam, dan presisi
             const options = {
-                scale: 3, // Meningkatkan resolusi gambar (HD)
-                useCORS: true, // Izinkan memuat gambar dari domain eksternal seperti kuansing.go.id
-                allowTaint: true,
-                backgroundColor: '#ffffff' // Background solid putih
+                scale: 3,                 // Resolusi HD (3x lipat ukuran asli)
+                useCORS: true,            // Penanganan CORS gambar lokal/eksternal
+                allowTaint: false,        // Ubah ke false agar tidak mengotori canvas dengan gambar ilegal
+                backgroundColor: '#ffffff', // Latar belakang solid putih bersih
+                logging: false,           // Matikan log internal agar proses lebih cepat
+                letterRendering: true,    // MEMAKSA teks dirender per karakter agar spasi dan font rapi
+                width: 550,               // Mengunci lebar target mutlak (sesuai class w-[550px])
+                height: 220,              // Mengunci tinggi target mutlak (sesuai class h-[220px])
+                scrollX: 0,               // Mencegah pergeseran jika posisi halaman sedang di-scroll
+                scrollY: -window.scrollY, // Menormalkan offset koordinat Y akibat scroll browser
+                ignoreElements: function (element) {
+                    return false;
+                }
             };
 
-            // Menampilkan status loading singkat di tombol
             const originalHTML = this.innerHTML;
             this.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Memproses...`;
             this.disabled = true;
 
             html2canvas(captureElement, options).then(canvas => {
-                // Konversi canvas ke URL data gambar PNG
                 const image = canvas.toDataURL('image/png');
-                
-                // Membuat elemen tautan trigger download tersembunyi
                 const link = document.createElement('a');
                 link.href = image;
                 link.download = fileName;
@@ -228,7 +316,6 @@
                 link.click();
                 document.body.removeChild(link);
 
-                // Mengembalikan state tombol awal
                 this.innerHTML = originalHTML;
                 this.disabled = false;
             }).catch(err => {
@@ -241,4 +328,5 @@
     </script>
 
 </body>
+
 </html>
