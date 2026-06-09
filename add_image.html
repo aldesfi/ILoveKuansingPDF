@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 </head>
+
 <body class="bg-gray-100 min-h-screen font-sans flex flex-col justify-between">
 
     <div>
@@ -17,7 +19,8 @@
                     <span class="text-3xl">📄</span>
                     <div>
                         <h1 class="text-2xl font-bold tracking-wide">ILoveKuantanPDF</h1>
-                        <p class="text-xs text-blue-200">Aplikasi Penyisip Gambar PDF & Footer TTE (Tunggal & Massal)</p>
+                        <p class="text-xs text-blue-200">Aplikasi Penyisip Gambar PDF & Footer TTE (Tunggal & Massal)
+                        </p>
                     </div>
                 </div>
                 <div class="text-xs bg-blue-800 text-blue-100 px-3 py-1.5 rounded-md font-mono">
@@ -28,14 +31,16 @@
 
         <main class="max-w-7xl mx-auto px-4 pb-12">
             <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
-                
+
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 h-fit space-y-6">
-                    
+
                     <div>
-                        <h2 class="text-sm font-bold uppercase tracking-wider text-gray-700 border-b pb-2 mb-3">🔷 Gambar Utama (Stempel / TTD)</h2>
+                        <h2 class="text-sm font-bold uppercase tracking-wider text-gray-700 border-b pb-2 mb-3">🔷
+                            Gambar Utama (Stempel / TTD)</h2>
                         <div class="mb-3 bg-blue-50 p-3 rounded-lg border border-blue-200">
-                            <label class="block text-xs font-bold uppercase tracking-wider text-blue-800 mb-1">Pilih Gambar Utama/Tanda Tangan :</label>
-                            <input type="file" id="imageInput" accept=".png, .jpg, .jpeg" 
+                            <label class="block text-xs font-bold uppercase tracking-wider text-blue-800 mb-1">Pilih
+                                Gambar Utama/Tanda Tangan :</label>
+                            <input type="file" id="imageInput" accept=".png, .jpg, .jpeg"
                                 class="w-full text-xs text-gray-600 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700 border border-gray-300 rounded p-1 bg-white">
                         </div>
                         <div class="space-y-3 bg-gray-50 p-2.5 rounded border border-gray-200">
@@ -43,42 +48,52 @@
                                 <div>
                                     <div class="flex justify-between items-center mb-1">
                                         <span class="text-[11px] text-gray-500">Lebar (px)</span>
-                                        <input type="number" id="imgWNum" min="10" max="400" value="100" class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-blue-600 bg-white text-right">
+                                        <input type="number" id="imgWNum" min="10" max="400" value="100"
+                                            class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-blue-600 bg-white text-right">
                                     </div>
-                                    <input type="range" id="imgW" min="10" max="400" value="100" class="w-full accent-blue-600">
+                                    <input type="range" id="imgW" min="10" max="400" value="100"
+                                        class="w-full accent-blue-600">
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-center mb-1">
                                         <span class="text-[11px] text-gray-500">Tinggi (px)</span>
-                                        <input type="number" id="imgHNum" min="10" max="400" value="50" class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-blue-600 bg-white text-right">
+                                        <input type="number" id="imgHNum" min="10" max="400" value="50"
+                                            class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-blue-600 bg-white text-right">
                                     </div>
-                                    <input type="range" id="imgH" min="10" max="400" value="50" class="w-full accent-blue-600">
+                                    <input type="range" id="imgH" min="10" max="400" value="50"
+                                        class="w-full accent-blue-600">
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 gap-2 border-t pt-2 border-gray-200">
                                 <div>
                                     <div class="flex justify-between items-center mb-1">
                                         <span class="text-[11px] text-gray-500">Posisi X (px)</span>
-                                        <input type="number" id="posXNum" min="0" max="600" value="20" class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-blue-600 bg-white text-right">
+                                        <input type="number" id="posXNum" min="0" max="600" value="20"
+                                            class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-blue-600 bg-white text-right">
                                     </div>
-                                    <input type="range" id="posX" min="0" max="600" value="20" class="w-full accent-blue-600">
+                                    <input type="range" id="posX" min="0" max="600" value="20"
+                                        class="w-full accent-blue-600">
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-center mb-1">
                                         <span class="text-[11px] text-gray-500">Posisi Y (px)</span>
-                                        <input type="number" id="posYNum" min="0" max="800" value="20" class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-blue-600 bg-white text-right">
+                                        <input type="number" id="posYNum" min="0" max="800" value="20"
+                                            class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-blue-600 bg-white text-right">
                                     </div>
-                                    <input type="range" id="posY" min="0" max="800" value="20" class="w-full accent-blue-600">
+                                    <input type="range" id="posY" min="0" max="800" value="20"
+                                        class="w-full accent-blue-600">
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h2 class="text-sm font-bold uppercase tracking-wider text-gray-700 border-b pb-2 mb-3">🌿 Gambar Footer TTE BSrE</h2>
+                        <h2 class="text-sm font-bold uppercase tracking-wider text-gray-700 border-b pb-2 mb-3">🌿
+                            Gambar Footer TTE BSrE</h2>
                         <div class="mb-3 bg-green-50 p-3 rounded-lg border border-green-200">
-                            <label class="block text-xs font-bold uppercase tracking-wider text-green-800 mb-1">Pilih Gambar Banner Footer:</label>
-                            <input type="file" id="bsreImageInput" accept=".png, .jpg, .jpeg" 
+                            <label class="block text-xs font-bold uppercase tracking-wider text-green-800 mb-1">Pilih
+                                Gambar Banner Footer:</label>
+                            <input type="file" id="bsreImageInput" accept=".png, .jpg, .jpeg"
                                 class="w-full text-xs text-gray-600 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-green-600 file:text-white hover:file:bg-green-700 border border-gray-300 rounded p-1 bg-white">
                         </div>
                         <div class="space-y-3 bg-gray-50 p-2.5 rounded border border-gray-200">
@@ -86,108 +101,145 @@
                                 <div>
                                     <div class="flex justify-between items-center mb-1">
                                         <span class="text-[11px] text-gray-500">Lebar (px)</span>
-                                        <input type="number" id="bsreImgWNum" min="50" max="600" value="350" class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-green-600 bg-white text-right">
+                                        <input type="number" id="bsreImgWNum" min="50" max="600" value="350"
+                                            class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-green-600 bg-white text-right">
                                     </div>
-                                    <input type="range" id="bsreImgW" min="50" max="600" value="350" class="w-full accent-green-600">
+                                    <input type="range" id="bsreImgW" min="50" max="600" value="350"
+                                        class="w-full accent-green-600">
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-center mb-1">
                                         <span class="text-[11px] text-gray-500">Tinggi (px)</span>
-                                        <input type="number" id="bsreImgHNum" min="10" max="150" value="45" class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-green-600 bg-white text-right">
+                                        <input type="number" id="bsreImgHNum" min="10" max="150" value="45"
+                                            class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-green-600 bg-white text-right">
                                     </div>
-                                    <input type="range" id="bsreImgH" min="10" max="150" value="45" class="w-full accent-green-600">
+                                    <input type="range" id="bsreImgH" min="10" max="150" value="45"
+                                        class="w-full accent-green-600">
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 gap-2 border-t pt-2 border-gray-200">
                                 <div>
                                     <div class="flex justify-between items-center mb-1">
                                         <span class="text-[11px] text-gray-500">Posisi X (px)</span>
-                                        <input type="number" id="bsrePosXNum" min="0" max="600" value="30" class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-green-600 bg-white text-right">
+                                        <input type="number" id="bsrePosXNum" min="0" max="600" value="30"
+                                            class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-green-600 bg-white text-right">
                                     </div>
-                                    <input type="range" id="bsrePosX" min="0" max="600" value="30" class="w-full accent-green-600">
+                                    <input type="range" id="bsrePosX" min="0" max="600" value="30"
+                                        class="w-full accent-green-600">
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-center mb-1">
                                         <span class="text-[11px] text-gray-500">Posisi Y (px)</span>
-                                        <input type="number" id="bsrePosYNum" min="0" max="800" value="25" class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-green-600 bg-white text-right">
+                                        <input type="number" id="bsrePosYNum" min="0" max="800" value="25"
+                                            class="w-16 text-xs border rounded px-1 py-0.5 font-bold text-green-600 bg-white text-right">
                                     </div>
-                                    <input type="range" id="bsrePosY" min="0" max="800" value="25" class="w-full accent-green-600">
+                                    <input type="range" id="bsrePosY" min="0" max="800" value="25"
+                                        class="w-full accent-green-600">
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="text-[10px] text-gray-400 bg-gray-50 p-2 rounded">
-                        *Keterangan: Titik koordinat awal (0,0) dihitung dari sudut <strong>KIRI-BAWAH</strong> halaman kertas PDF. Kotak overlay di area pratinjau kini bisa langsung <strong>di-drag menggunakan mouse</strong>.
+                        *Keterangan: Titik koordinat awal (0,0) dihitung dari sudut <strong>KIRI-BAWAH</strong> halaman
+                        kertas PDF. Kotak overlay di area pratinjau kini bisa langsung <strong>di-drag menggunakan
+                            mouse</strong>.
                     </div>
 
                 </div>
 
                 <div class="lg:col-span-2 xl:col-span-2 space-y-6">
-                    
+
                     <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                         <div class="flex border-b border-gray-200">
-                            <button id="tabSingleBtn" class="py-2 px-4 text-sm font-bold border-b-2 border-blue-600 text-blue-600 focus:outline-none flex items-center space-x-2 cursor-pointer">
+                            <button id="tabSingleBtn"
+                                class="py-2 px-4 text-sm font-bold border-b-2 border-blue-600 text-blue-600 focus:outline-none flex items-center space-x-2 cursor-pointer">
                                 <span>📄 Mode 1 PDF (Live Preview)</span>
                             </button>
-                            <button id="tabBulkBtn" class="py-2 px-4 text-sm font-medium text-gray-500 hover:text-green-600 focus:outline-none flex items-center space-x-2 ml-4 cursor-pointer">
+                            <button id="tabBulkBtn"
+                                class="py-2 px-4 text-sm font-medium text-gray-500 hover:text-green-600 focus:outline-none flex items-center space-x-2 ml-4 cursor-pointer">
                                 <span>🗂️ Mode Banyak PDF (Bulk Process)</span>
                             </button>
                         </div>
 
                         <div id="tabSingleContent" class="pt-4 space-y-4">
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Pilih File PDF Sumber:</label>
-                                <input type="file" id="pdfSingleInput" accept=".pdf" 
+                                <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Pilih
+                                    File PDF Sumber:</label>
+                                <input type="file" id="pdfSingleInput" accept=".pdf"
                                     class="w-full text-xs text-gray-500 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 border border-gray-300 rounded p-1">
                             </div>
 
-                            <div class="bg-gray-100 p-4 rounded-lg border border-dashed border-gray-300 flex justify-center min-h-[420px] relative overflow-auto">
-                                <div id="previewContainer" class="relative hidden border shadow-md bg-white select-none">
+                            <div
+                                class="bg-gray-100 p-4 rounded-lg border border-dashed border-gray-300 flex justify-center min-h-[420px] relative overflow-auto">
+                                <div id="previewContainer"
+                                    class="relative hidden border shadow-md bg-white select-none">
                                     <canvas id="pdfCanvas" class="block w-full h-auto"></canvas>
-                                    
-                                    <div id="imageOverlay" class="absolute bg-blue-500/20 border-2 border-dashed border-blue-600 flex items-center justify-center overflow-hidden cursor-move z-10">
-                                        <img id="previewImgElement" class="w-full h-full object-contain opacity-70 hidden pointer-events-none" alt="">
-                                        <span id="overlayText" class="text-[10px] text-blue-800 font-bold p-1 text-center pointer-events-none">Gambar Utama</span>
+
+                                    <div id="imageOverlay"
+                                        class="absolute bg-blue-500/20 border-2 border-dashed border-blue-600 flex items-center justify-center overflow-hidden cursor-move z-10">
+                                        <img id="previewImgElement"
+                                            class="w-full h-full object-contain opacity-70 hidden pointer-events-none"
+                                            alt="">
+                                        <span id="overlayText"
+                                            class="text-[10px] text-blue-800 font-bold p-1 text-center pointer-events-none">Gambar
+                                            Utama</span>
                                     </div>
 
-                                    <div id="bsreOverlay" class="absolute bg-green-500/20 border-2 border-dashed border-green-600 flex items-center justify-center overflow-hidden cursor-move z-20">
-                                        <img id="previewBsreImgElement" class="w-full h-full object-contain opacity-80 hidden pointer-events-none" alt="">
-                                        <span id="bsreOverlayText" class="text-[10px] text-green-800 font-bold p-1 text-center pointer-events-none">Banner Footer BSrE</span>
+                                    <div id="bsreOverlay"
+                                        class="absolute bg-green-500/20 border-2 border-dashed border-green-600 flex items-center justify-center overflow-hidden cursor-move z-20">
+                                        <img id="previewBsreImgElement"
+                                            class="w-full h-full object-contain opacity-80 hidden pointer-events-none"
+                                            alt="">
+                                        <span id="bsreOverlayText"
+                                            class="text-[10px] text-green-800 font-bold p-1 text-center pointer-events-none">Banner
+                                            Footer BSrE</span>
                                     </div>
                                 </div>
 
-                                <div id="placeholderText" class="flex flex-col items-center justify-center text-gray-400 py-24">
+                                <div id="placeholderText"
+                                    class="flex flex-col items-center justify-center text-gray-400 py-24">
                                     <!-- <span class="text-4xl mb-2">👁️</span> -->
-                                    <p class="text-xs text-center">Unggah berkas untuk mensimulasikan tata letak gambar utama dan banner footer BSrE.</p>
+                                    <p class="text-xs text-center">Unggah berkas untuk mensimulasikan tata letak gambar
+                                        utama dan banner footer BSrE.</p>
                                 </div>
                             </div>
 
-                            <button id="downloadSingleBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm transition disabled:bg-gray-300 cursor-pointer disabled:cursor-not-allowed" disabled>
+                            <button id="downloadSingleBtn"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm transition disabled:bg-gray-300 cursor-pointer disabled:cursor-not-allowed"
+                                disabled>
                                 💾 Download Hasil PDF Tunggal
                             </button>
                         </div>
 
                         <div id="tabBulkContent" class="pt-4 space-y-4 hidden">
                             <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs rounded-lg p-3">
-                                💡 <strong>Tips Master:</strong> Lakukan penyelarasan ukuran gambar utama serta banner BSrE pada tab <em>"Mode 1 PDF"</em> terlebih dulu agar posisinya pas sebelum memproses file massal.
+                                💡 <strong>Tips Master:</strong> Lakukan penyelarasan ukuran gambar utama serta banner
+                                BSrE pada tab <em>"Mode 1 PDF"</em> terlebih dulu agar posisinya pas sebelum memproses
+                                file massal.
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Pilih File PDF Massal (Bulk):</label>
-                                <input type="file" id="pdfBulkInput" accept=".pdf" multiple 
+                                <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Pilih
+                                    File PDF Massal (Bulk):</label>
+                                <input type="file" id="pdfBulkInput" accept=".pdf" multiple
                                     class="w-full text-xs text-gray-500 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 border border-gray-300 rounded p-1">
                                 <p id="bulkFileCount" class="text-xs text-blue-600 mt-1 italic font-medium"></p>
                             </div>
 
                             <div class="space-y-1">
-                                <span class="text-xs font-bold text-gray-600 uppercase tracking-wider block">🖥️ Log Antrean Proses (Terminal Mode):</span>
-                                <div id="logConsole" class="bg-black text-green-400 font-mono text-xs p-4 rounded-lg h-48 overflow-y-auto space-y-1 shadow-inner border border-gray-800">
-                                    <div class="text-gray-500">[SYSTEM] Terminal siap. Menunggu antrean file bulk...</div>
+                                <span class="text-xs font-bold text-gray-600 uppercase tracking-wider block">🖥️ Log
+                                    Antrean Proses (Terminal Mode):</span>
+                                <div id="logConsole"
+                                    class="bg-black text-green-400 font-mono text-xs p-4 rounded-lg h-48 overflow-y-auto space-y-1 shadow-inner border border-gray-800">
+                                    <div class="text-gray-500">[SYSTEM] Terminal siap. Menunggu antrean file bulk...
+                                    </div>
                                 </div>
                             </div>
 
-                            <button id="processBulkBtn" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-sm transition disabled:bg-gray-300 cursor-pointer disabled:cursor-not-allowed" disabled>
+                            <button id="processBulkBtn"
+                                class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-sm transition disabled:bg-gray-300 cursor-pointer disabled:cursor-not-allowed"
+                                disabled>
                                 ⚡ Jalankan Bulk Process & Auto-Download Semua
                             </button>
                         </div>
@@ -276,13 +328,13 @@
                 currentPdfPage = page;
 
                 const viewport = page.getViewport({ scale: 1.0 });
-                
+
                 const maxW = Math.round(viewport.width);
                 const maxH = Math.round(viewport.height);
-                
+
                 posX.max = maxW; posXNum.max = maxW;
                 bsrePosX.max = maxW; bsrePosXNum.max = maxW;
-                
+
                 posY.max = maxH; posYNum.max = maxH;
                 bsrePosY.max = maxH; bsrePosYNum.max = maxH;
 
@@ -334,7 +386,7 @@
                 const max = parseInt(numberEl.max);
                 if (val < min) val = min;
                 if (val > max) val = max;
-                
+
                 sliderEl.value = val;
                 updateOverlayGeometry();
             });
@@ -354,10 +406,10 @@
             overlayEl.addEventListener('mousedown', (e) => {
                 if (!currentPdfPage) return;
                 isDragging = true;
-                
+
                 startX = e.clientX;
                 startY = e.clientY;
-                
+
                 // Ambil nilai posisi saat ini langsung dari variabel dasar
                 startLeft = parseInt(posXSlider.value) * scaleRatio;
                 startBottom = parseInt(posYSlider.value) * scaleRatio;
@@ -371,7 +423,7 @@
 
                 const deltaX = e.clientX - startX;
                 // PDF menggunakan bottom-up, maka geser mouse ke BAWAH justru mengurangi nilai Y dasar PDF
-                const deltaY = startY - e.clientY; 
+                const deltaY = startY - e.clientY;
 
                 let newLeft = startLeft + deltaX;
                 let newBottom = startBottom + deltaY;
@@ -413,7 +465,7 @@
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function(ev) {
+                reader.onload = function (ev) {
                     previewImgElement.src = ev.target.result;
                     previewImgElement.classList.remove('hidden');
                     overlayText.classList.add('hidden');
@@ -428,7 +480,7 @@
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function(ev) {
+                reader.onload = function (ev) {
                     previewBsreImgElement.src = ev.target.result;
                     previewBsreImgElement.classList.remove('hidden');
                     bsreOverlayText.classList.add('hidden');
@@ -439,10 +491,10 @@
             validateButtons();
         });
 
-        pdfSingleInput.addEventListener('change', (e) => { if(e.target.files[0]) renderSinglePreview(e.target.files[0]); });
-        
+        pdfSingleInput.addEventListener('change', (e) => { if (e.target.files[0]) renderSinglePreview(e.target.files[0]); });
+
         pdfBulkInput.addEventListener('change', () => {
-            if(pdfBulkInput.files.length > 0) {
+            if (pdfBulkInput.files.length > 0) {
                 bulkFileCount.innerText = `📂 ${pdfBulkInput.files.length} file PDF telah masuk ke antrean bulk.`;
                 printLog(`[QUEUE] ${pdfBulkInput.files.length} file ditambahkan ke antrean terminal.`, 'info');
             } else {
@@ -462,7 +514,7 @@
             let color = 'text-blue-400'; let prefix = '[INFO]';
             if (type === 'error') { color = 'text-red-500 font-bold'; prefix = '[ERROR]'; }
             else if (type === 'success') { color = 'text-green-400'; prefix = '[SUCCESS]'; }
-            
+
             logConsole.innerHTML += `<div class="${color}"><span class="text-gray-500">[${timestamp}]</span> ${prefix} ${msg}</div>`;
             logConsole.scrollTop = logConsole.scrollHeight;
         }
@@ -470,7 +522,7 @@
         // Pemrosesan File Tunggal
         downloadSingleBtn.addEventListener('click', async () => {
             const pdfFile = pdfSingleInput.files[0];
-            if(!pdfFile) return;
+            if (!pdfFile) return;
             downloadSingleBtn.disabled = true;
             try {
                 const modifiedBytes = await injectBothImagesToPdf(pdfFile);
@@ -497,21 +549,21 @@
             if (pdfFiles.length === 0) return;
 
             processBulkBtn.disabled = true;
-            logConsole.innerHTML = ''; 
+            logConsole.innerHTML = '';
             printLog(`Memulai pemrosesan massal 2 layer gambar untuk ${pdfFiles.length} berkas PDF...`, 'info');
 
             try {
                 for (let i = 0; i < pdfFiles.length; i++) {
                     const file = pdfFiles[i];
-                    printLog(`Menyisipkan aset gambar pada file (${i+1}/${pdfFiles.length}): ${file.name}`, 'info');
+                    printLog(`Menyisipkan aset gambar pada file (${i + 1}/${pdfFiles.length}): ${file.name}`, 'info');
                     const modifiedBytes = await injectBothImagesToPdf(file);
                     const now = new Date();
                     const timestamp = now.getFullYear() +
-                    String(now.getMonth() + 1).padStart(2, '0') +
-                    String(now.getDate()).padStart(2, '0') + '_' +
-                    String(now.getHours()).padStart(2, '0') +
-                    String(now.getMinutes()).padStart(2, '0') +
-                    String(now.getSeconds()).padStart(2, '0');
+                        String(now.getMonth() + 1).padStart(2, '0') +
+                        String(now.getDate()).padStart(2, '0') + '_' +
+                        String(now.getHours()).padStart(2, '0') +
+                        String(now.getMinutes()).padStart(2, '0') +
+                        String(now.getSeconds()).padStart(2, '0');
 
                     triggerDownload(modifiedBytes, `${timestamp}_untuk_upload_tte_${file.name}`);
                     printLog(`Sukses diexport & diunduh: for_upload_tte_${file.name}`, 'success');
@@ -564,4 +616,5 @@
         }
     </script>
 </body>
+
 </html>
