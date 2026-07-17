@@ -1,14 +1,14 @@
-# ILoveKuantanPDF
+# ILoveKuansingPDF
 Aplikasi web lokal (100% client-side) untuk menyisipkan stempel, tanda tangan, banner footer BSrE, dan tata letak TTE pada dokumen PDF (Tunggal, Massal, &amp; Ijazah Elektronik) secara presisi tanpa unggah server.
 
 ### 🌐 Akses Aplikasi Online
 Anda dapat langsung mencoba dan menggunakan aplikasi ini melalui tautan berikut:
-* **[🔗 Aplikasi Utama (Penyisip Gambar & Footer PDF)](https://aldesfi.github.io/ILoveKuantanPDF/add_image.html)**
-* **[🔗 Aplikasi Pendukung (Pembuat Gambar TTE)](https://aldesfi.github.io/ILoveKuantanPDF/create_tte_image)**
+* **[🔗 Aplikasi Utama (Penyisip Gambar & Footer PDF)](https://aldesfi.github.io/ILoveKuansingPDF/add_image.html)**
+* **[🔗 Aplikasi Pendukung (Pembuat Gambar TTE)](https://aldesfi.github.io/ILoveKuansingPDF/create_tte_image)**
 
-# ILoveKuantanPDF 📄✨
+# ILoveKuansingPDF 📄✨
 
-**ILoveKuantanPDF** adalah aplikasi berbasis web (*client-side*) modern yang dirancang untuk mempermudah penyisipan aset gambar—seperti stempel resmi, tanda tangan digital, banner footer Sertifikasi Elektronik (BSrE), hingga **keperluan tata letak Dokumen Akademik seperti Ijazah Elektronik / TTE**—ke dalam dokumen PDF secara presisi. Aplikasi ini mendukung pemrosesan berkas tunggal dengan pratinjau langsung (*live preview*) maupun pemrosesan massal (*bulk process*).
+**ILoveKuansingPDF** adalah aplikasi berbasis web (*client-side*) modern yang dirancang untuk mempermudah penyisipan aset gambar—seperti stempel resmi, tanda tangan digital, banner footer Sertifikasi Elektronik (BSrE), hingga **keperluan tata letak Dokumen Akademik seperti Ijazah Elektronik / TTE**—ke dalam dokumen PDF secara presisi. Aplikasi ini mendukung pemrosesan berkas tunggal dengan pratinjau langsung (*live preview*) maupun pemrosesan massal (*bulk process*).
 
 Seluruh pemrosesan dokumen dilakukan secara **100% lokal di dalam peramban (browser) pengguna**. Tidak ada data berkas atau dokumen penting (seperti ijazah atau transkrip nilai) yang diunggah ke server luar, menjadikannya sangat aman dan menjaga kerahasiaan dokumen kedinasan/pribadi.
 
